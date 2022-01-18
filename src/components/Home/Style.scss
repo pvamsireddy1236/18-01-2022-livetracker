@@ -1,0 +1,54 @@
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+  border: none;
+  color: rgba(250, 249, 249, 0.671);
+}
+body {
+  background-color: #3b3a3a;
+  color: #fff;
+}
+.accordion {
+  border: 1px solid #ccc;
+  border-radius: 2px;
+}
+.accordion input {
+  display: none;
+}
+.accordionHandler {
+  padding: 10px;
+  display: block;
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #717171;
+}
+.accordionTitle {
+  font-weight: bold;
+}
+.accordionIcon {
+  transition: transform 250ms ease-in-out;
+}
+.accordion input:checked ~ .accordionBody {
+  height: auto;
+  padding: 0 10px 10px;
+}
+.accordion input:checked + .accordionHandler .accordionIcon {
+  transform: rotate(180deg);
+}
+.accordionBody {
+  overflow: hidden;
+  height: 86vh;
+}
+.currency{
+    color: #a09e9e;
+}
