@@ -46,9 +46,11 @@ body {
   transform: rotate(180deg);
 }
 .accordionBody {
-  overflow: hidden;
+  overflow-y: scroll;
   height: 86vh;
 }
 .currency{
     color: #a09e9e;
 }
+
+

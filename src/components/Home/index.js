@@ -13,7 +13,6 @@ const Home = (props) => {
     dispatch(openChatWebSocket());
   }, [dispatch, openChatWebSocket]);
 
-
   return (
     <>
       <div className="accordion">
@@ -43,21 +42,34 @@ const Home = (props) => {
                 <th>Price</th>
               </tr>
               {stockData ? (
-                stockData.map((item,i) => {
+                stockData.map((item, i) => {
                   let { price, amount, count, totalPrice } =
                     item[Object.keys(item)];
                   return (
-                      <tr key={amount} ref={(element)=>refs.current[i] = {
-                        'node': element,
-                        'amount':amount,
-                        'price':price,
-                        'count':count,
-                       }}>
-                        <td>{count}</td>
-                        <td>{price}</td>
-                        <td>{totalPrice}</td>
-                        <td>{amount.toLocaleString()}</td>
-                      </tr>
+                    <tr
+                      key={amount}
+                      ref={(element) =>
+                        (refs.current[i] = {
+                          node: element,
+                          amount: amount,
+                          price: price,
+                          count: count,
+                        })
+                      }
+                      style={{
+                        backgroundColor:
+                          refs?.current[i]?.count !== count ||
+                          refs?.current[i]?.price !== price ||
+                          refs?.current[i]?.amount !== amount
+                            ? "#54504a"
+                            : "#2c2111",
+                      }}
+                    > 
+                      <td>{count}</td>
+                      <td>{price}</td>
+                      <td>{totalPrice}</td>
+                      <td>{amount.toLocaleString()}</td>
+                    </tr>
                   );
                 })
               ) : (
